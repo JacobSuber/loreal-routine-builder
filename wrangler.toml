@@ -1,0 +1,12 @@
+name = "loreal-routine-concierge"
+main = "worker/worker.js"
+compatibility_date = "2026-11-01"
+
+# Free-tier alternative for live AI; disable the block if only using OpenAI.
+[ai]
+binding = "AI"
+
+# Optional security: set this to your exact GitHub Pages website origin after you deploy.
+# For example: ALLOWED_ORIGIN = "https://yourusername.github.io"
+[vars]
+ALLOWED_ORIGIN = "*"

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fffaf9">
+  <meta name="description" content="An interactive L’Oréal product-aware beauty routine builder — student project.">
+  <title>L’ORÉAL | Your Routine, Refined</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="topline">BEAUTY, PERSONALIZED FOR YOU <span aria-hidden="true">✦</span> A STUDENT PROJECT</div>
+  <header class="site-header">
+    <div class="header-inner container">
+      <a class="wordmark" href="#top" aria-label="L'Oréal Routine Builder home">L’ORÉAL<span>ROUTINE ATELIER</span></a>
+      <nav class="nav-links" aria-label="Main navigation"><a href="#discover">Discover</a><a href="#routine">Your routine</a></nav>
+      <div class="header-actions">
+        <button type="button" class="text-action" id="directionToggle" aria-pressed="false" title="Switch to right-to-left layout">RTL <span aria-hidden="true">↔</span></button>
+        <a class="bag-action" href="#selections" aria-label="Go to selected products">My picks <span class="bag-count" id="headerCount">0</span></a>
+      </div>
+    </div>
+  </header>
+  <main id="top">
+    <section class="hero container" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="tiny-star" aria-hidden="true">✳</span> THE ART OF YOUR ROUTINE</div>
+        <h1 id="heroTitle">Your beauty.<br><em>Your ritual.</em></h1>
+        <p>Discover products you love, make them your own, and create a thoughtful routine designed around you.</p>
+        <a class="hero-cta" href="#discover">Explore the collection <span aria-hidden="true">↗</span></a>
+        <div class="hero-note"><span class="hero-note-line"></span> Curated care, made personal.</div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+        <div class="art-shape art-tall"><div class="art-bottle-label">L’ORÉAL<br><small>RADIANCE</small><span>01</span></div></div>
+        <div class="art-shape art-jar"><div class="jar-lid"></div><div class="jar-mark">L’ORÉAL<span>BEAUTY RITUAL</span></div></div>
+        <div class="art-leaf leaf-a"></div><div class="art-leaf leaf-b"></div>
+        <span class="art-caption">THE BEAUTY OF BEING YOU</span>
+      </div>
+    </section>
+    <section id="discover" class="collection-section">
+      <div class="container">
+        <div class="section-intro"><div><div class="eyebrow">01 / EXPLORE</div><h2>Find your favorites<span class="period">.</span></h2><p>Choose your essentials from the L’Oréal family of brands.</p></div><div class="section-count" id="productCounter" aria-live="polite">35 products</div></div>
+        <div class="toolbar">
+          <label class="search-wrap" for="productSearch"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7.3"/><path d="m16.5 16.5 4.4 4.4"/></svg><input id="productSearch" type="search" placeholder="Search products, brands, ingredients…" autocomplete="off"><kbd>/</kbd></label>
+          <label class="filter-wrap" for="categoryFilter"><span>Category</span><select id="categoryFilter"><option value="all">All categories</option></select><svg viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="m4 7 6 6 6-6" stroke="currentColor" fill="none" stroke-width="1.8"/></svg></label>
+        </div>
+        <div class="results-bar"><span id="resultLabel" aria-live="polite">Our most-loved essentials</span><button type="button" id="resetFilters" class="quiet-link" hidden>Reset filters ×</button></div>
+        <div class="product-grid" id="productsContainer" aria-live="polite"></div>
+        <div class="grid-footer" id="gridFooter"></div>
+      </div>
+    </section>
+    <section id="routine" class="routine-section">
+      <div class="container">
+        <div class="section-intro"><div><div class="eyebrow">02 / CREATE</div><h2>A routine that's <em>you</em><span class="period">.</span></h2><p>A little self-care, thoughtfully put together.</p></div><span class="mode-tag" id="modeTag">DEMO PREVIEW</span></div>
+        <div class="routine-layout">
+          <aside id="selections" class="selected-panel" aria-label="Selected products">
+            <div class="panel-heading"><div><span class="panel-index">YOUR EDIT</span><h3>Selected products <span id="selectionCount">0</span></h3></div><button id="clearSelections" type="button" class="quiet-link" hidden>Clear all</button></div>
+            <div id="selectedProducts" class="selected-products"></div>
+            <div class="preferences">
+              <label for="goalSelect">What is your main goal?</label>
+              <select id="goalSelect"><option value="balanced">A simple balanced routine</option><option value="hydration">Extra hydration</option><option value="brightening">A brighter look</option><option value="gentle">Gentle care for sensitive skin</option><option value="easy">The quickest routine possible</option></select>
+              <label for="timeSelect">When will you use it?</label>
+              <select id="timeSelect"><option value="both">Morning & evening</option><option value="morning">Morning</option><option value="evening">Evening</option></select>
+            </div>
+            <button class="generate-btn" id="generateRoutine" type="button" disabled>Generate my routine <span aria-hidden="true">↗</span></button>
+            <p class="generate-hint">Choose at least one product to get started.</p>
+          </aside>
+          <section class="chat-panel" aria-labelledby="chatTitle">
+            <div class="chat-header"><div class="chat-avatar" aria-hidden="true">✳</div><div><h3 id="chatTitle">The Routine Concierge</h3><p><span class="online-dot"></span> Here to help with your beauty ritual</p></div><button class="chat-reset" type="button" id="clearChat" title="Clear conversation" aria-label="Clear conversation">↺</button></div>
+            <div class="chat-window" id="chatWindow" role="log" aria-live="polite" aria-relevant="additions text">
+              <div class="chat-empty" id="chatEmpty"><div class="chat-sparkle" aria-hidden="true">✳</div><span class="chat-overline">YOUR PERSONAL BEAUTY SPACE</span><h4>Let's make something<br><em>beautiful.</em></h4><p>Pick a few favorites, then select “Generate my routine” to see how they fit together.</p><div class="chat-example">Try asking: “What order should I use these in?”</div></div>
+            </div>
+            <form id="chatForm" class="chat-form"><label for="chatInput" class="sr-only">Ask about your routine or beauty care</label><input id="chatInput" type="text" placeholder="Ask about your routine…" maxlength="500" disabled autocomplete="off"><button id="sendChat" type="submit" aria-label="Send message" disabled><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m4 12 16-8-6 16-2.5-7.5L4 12Z"/><path d="m11.5 12.5 8.5-8.5"/></svg></button></form>
+            <div class="search-toggle"><label><input type="checkbox" id="webSearchToggle"> Include current web results <span>(OpenAI Worker only)</span></label></div><div class="chat-disclaimer" id="chatDisclaimer">Demo responses are locally generated, not live AI. Connect a Worker for AI replies.</div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="container footer-content"><div class="footer-brand">L’ORÉAL<span>ROUTINE ATELIER</span></div><p>Made for a classroom web development project · Not affiliated with or endorsed by L’Oréal.</p><a href="#top">Back to top ↑</a></div></footer>
+  <script src="products-data.js"></script>
+  <script src="config.js"></script>
+  <script defer src="script.js"></script>
+</body>
+</html>

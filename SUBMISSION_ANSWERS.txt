@@ -1,0 +1,20 @@
+Project 9 — Reflection answers (edit these after deploying/testing)
+
+1. Paste your website URL:
+[PASTE YOUR ACTUAL GITHUB PAGES URL HERE]
+
+1B. LevelUps:
+I implemented the product search field (10 points) and right-to-left layout toggle (5 points). I can filter products by keywords and categories at the same time. I also added a button to switch the layout to RTL. I will only claim the web-search bonus if my OpenAI Worker is connected and I have tested current web results.
+
+2. What did you learn about writing better AI prompts? (10 points)
+I learned that being specific makes a big difference when working with AI. Instead of just asking it to make a routine, I wrote instructions telling it to focus on the exact products a person selected, use their descriptions, and organize the answer into steps. I also told it to stay on beauty-related topics so the chatbot doesn't get off track. It made me realize that a good system prompt should explain not just what the AI should do, but also what it should avoid. [Edit to accurately describe the prompts you personally tested.]
+
+3. Describe something that didn't go the way you expected. (10 points)
+One thing I had to work around was the product pictures not appearing in my offline testing environment. The images were linked to an online product library, so the page looked too empty when that connection wasn't available. I added a simple visual fallback for the product cards and kept the original image links for when the website was online. I also tested the selection buttons, filtering, and saved products to make sure everything still worked when the display changed.
+
+4. Short LinkedIn post (10 points)
+I recently worked on a web development project where I built a product-aware beauty routine builder using L'Oréal brand product data. I got to combine HTML, CSS, JavaScript, and AI integration concepts to create a website where users can explore products, save their favorites, and build a personalized routine. One of the biggest things I learned was how much the user experience matters, from making the design responsive to keeping the AI focused on useful answers. It was a great opportunity to practice both front-end development and problem-solving, and I'm excited to keep building on what I learned.
+
+[ADD YOUR LIVE SITE LINK]
+
+IMPORTANT: Do not claim live AI or live web search is working until your Cloudflare Worker is deployed and tested. Edit these statements to match your own experience before submitting.
